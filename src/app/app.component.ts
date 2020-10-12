@@ -13,6 +13,7 @@ import { ForecastModel } from './Models/Forecast/ForecastModel';
 export class AppComponent implements OnInit {
   units: string;
   loadingWeather: boolean = true;
+  weatherServicesError: boolean = false;
   locationSearch: string;
   location: string;
   currentWeather: ForecastModel;
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit {
       this.getWeatherForecast(this.locationSearch, this.units);
   }
   
-  getLocation(): void{
+  getLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position)=>{
         const longitude = position.coords.longitude;
@@ -58,18 +59,23 @@ export class AppComponent implements OnInit {
     });
   }
 
-  getWeatherForecast(location: string, units: string = "m") {
+  getWeatherForecast(location: string, units: string) {
     
     this.loadingWeather = true;
-    this.forecastService.getForecast(location, units).subscribe((result) => {
+    this.weatherServicesError = false;
 
-      this.location = result.data.location;
-      this.currentWeather = result.data.forecastWeather[0];
-      result.data.forecastWeather.shift();
+    this.forecastService.getForecast(location, units).subscribe(
+      (result) => {
 
-      this.forecastWeather = result.data.forecastWeather;
-      this.loadingWeather = false;
-    });
+        this.location = result.data.location;
+        this.currentWeather = result.data.forecastWeather[0];
+        result.data.forecastWeather.shift();
+
+        this.forecastWeather = result.data.forecastWeather;
+        this.loadingWeather = false;
+      },
+      (_) => this.weatherServicesError = true
+    );
   }
 
   onKeyup(ev: any) {

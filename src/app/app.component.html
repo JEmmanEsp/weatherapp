@@ -30,15 +30,16 @@
     <section class="title">
         <mat-card class="weather__card_title">
             <mat-card-header>
-                <mat-card-title>{{location}}</mat-card-title>
+                <mat-card-title *ngIf="!weatherServicesError">{{location}}</mat-card-title>
+                <mat-card-title *ngIf="weatherServicesError">Server error, please, try again later</mat-card-title>
             </mat-card-header>
         </mat-card>
     </section>
-    <section class="weather">
+    <section class="weather" *ngIf="!weatherServicesError">
         <app-current-weather [weather]="currentWeather" [isLoading]="loadingWeather"></app-current-weather>
         <app-current-weather-detail [weather]="currentWeather" [isLoading]="loadingWeather"></app-current-weather-detail>        
     </section>
-    <section class="forecast">        
+    <section class="forecast" *ngIf="!weatherServicesError">        
         <app-forecast-weather *ngFor="let weather of forecastWeather" [forecast]="weather" [isLoading]="loadingWeather"></app-forecast-weather>
     </section>
 </section>
