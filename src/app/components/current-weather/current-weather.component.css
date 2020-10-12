@@ -1,0 +1,14 @@
+.weather__card_header {
+    width: 220px;
+    margin-right: 18px;
+    padding-bottom: 32px;
+}
+.card_subtitle__reset {
+    margin-bottom: 0px;
+}
+
+@media (max-width: 560px) { 
+    .weather__card_header {
+        margin-right: 0px;
+    }
+}

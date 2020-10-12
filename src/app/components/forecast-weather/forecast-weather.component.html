@@ -1,0 +1,10 @@
+<mat-card class="forecast__card">
+    <mat-card-content class="forecast_content" *ngIf="isLoading">
+        <mat-spinner diameter="40"></mat-spinner>
+    </mat-card-content>
+    <mat-card-content class="forecast_content" *ngIf="!isLoading">
+        <p>{{getDay(forecast.date)}}</p>
+        <img class="forecast_icon" src="{{forecast.weatherIconUrl}}" alt="weather icon">
+        <p>{{forecast.temperature.split(" ")[0]}} {{forecast.temperature.split(" ")[1].charAt(0)}}</p>
+    </mat-card-content>
+</mat-card>

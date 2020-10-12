@@ -1,0 +1,12 @@
+<mat-card class="weather__card_details">
+    <mat-card-header style="padding-bottom: 15px;" *ngIf="isLoading">
+        <mat-spinner diameter="40"></mat-spinner>
+    </mat-card-header>
+    <mat-card-header *ngIf="!isLoading">
+        <mat-card-subtitle class="card_subtitle__reset">
+            Humidity: {{weather.humidity}} <br />
+            Wind: {{weather.wind}}<br />
+            Precipitation: {{weather.precipitation}}
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>

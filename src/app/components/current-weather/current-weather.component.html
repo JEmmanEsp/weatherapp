@@ -1,0 +1,11 @@
+<mat-card class="weather__card_header">
+    <mat-card-header *ngIf="isLoading">
+        <mat-spinner diameter="40"></mat-spinner>
+    </mat-card-header>
+    <mat-card-header *ngIf="!isLoading">
+        <img mat-card-avatar src="{{weather.weatherIconUrl}}" alt="weather icon">
+        <mat-card-title>{{weather.temperature}}</mat-card-title>
+        <mat-card-subtitle class="card_subtitle__reset">{{weather.weatherDescription}}</mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
+

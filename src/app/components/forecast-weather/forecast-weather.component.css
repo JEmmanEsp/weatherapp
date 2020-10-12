@@ -1,0 +1,34 @@
+.forecast__card {
+    width: 60px;
+    height: 90px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.forecast_icon {
+    height: 40px;    
+    width: 40px;
+}
+.forecast_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 560px) { 
+    .forecast__card {
+        width: 180px;
+        height: 45px;
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .forecast_content {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .forecast_icon {        
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  geocodingUrl: 'https://api.mapbox.com/geocoding/v5/mapbox.places/{lon},{lat}.json?access_token=pk.eyJ1IjoibHVpc2RpYXphaXMiLCJhIjoiY2tnNWlta3ZmMHY1YzJyczNiNDJ4a3V4cyJ9.yyX8S0PzdHh-eP6Ia4N1Lw',
+  forecastUrl: 'http://localhost:5001/api/CurrentWeather/{location}/{units}'
 };
 
 /*
